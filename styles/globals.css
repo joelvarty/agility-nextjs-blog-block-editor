@@ -1,4 +1,4 @@
-/* 
+/*
 || Global styles & custom css can be written here.
 */
 
@@ -17,6 +17,17 @@
 .prose h4,
 .prose h5,
 .prose h6,
-.prose blockquote {
+.blocks blockquote,
+.blocks h1,
+.blocks h2,
+.blocks h3,
+.blocks h4,
+.blocks h5,
+.blocks h6,
+.blocks blockquote {
   color: #243e63;
+}
+
+.block-image img {
+	margin-bottom: .5em;
 }
