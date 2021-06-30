@@ -38,7 +38,7 @@ const RichTextArea = ({ module }) => {
 	const renderImage = (block) => {
 		return <div className="block-image rounded-lg">
 			<div className="">
-				<img className="rounded-lg mb-0!" src={block.data.file.url}/>
+				<img className="rounded-lg mb-0!" src={block.data.file.url} />
 			</div>
 			<div className="text-center italic text-sm">{block.data.caption}</div>
 		</div>
@@ -52,13 +52,18 @@ const RichTextArea = ({ module }) => {
 	}
 
 	const renderDelimiter = (block) => {
-		return <hr/>
+		return <hr />
 	}
 
 	const renderQuote = (block) => {
-		return <blockquote>
-			<p>{ block.data.text }</p>
-		</blockquote>
+		console.log(block)
+		return <figure>
+			<blockquote >
+				<p>{block.data.text}</p>
+			</blockquote>
+			<figcaption> - {block.data.caption}</figcaption>
+		</figure>
+
 	}
 
 	const renderList = (block) => {
