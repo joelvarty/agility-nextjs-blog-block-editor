@@ -29,10 +29,43 @@ const RichTextArea = ({ module }) => {
 				return renderWarning(block)
 			case "image":
 				return renderImage(block)
+			case "table":
+				return renderTable(block)
+			case "code":
+				return renderCode(block)
+			case "raw":
+				return renderRaw(block)
 			default:
 				console.log("UN-RENDERED BLOCK", block)
 				return null
 		}
+	}
+
+	const renderRaw = (block) => {
+		return <div dangerouslySetInnerHTML={renderHTML(block.data.html)}
+	  />
+	}
+
+	const renderCode = (block) => {
+		return <pre>
+			<code>
+				{block.data.code}
+			</code>
+		</pre>
+	}
+
+	const renderTable = (block) => {
+
+		return <table>
+			<tbody>
+				{block.data.content.map((row, index) =>
+					<tr key={`tr-${index}`}>
+						{row.map((cell, cellIndex) => <td key={`td-${cellIndex}`}>{cell}</td>)}
+					</tr>)
+				}
+			</tbody>
+		</table>
+
 	}
 
 	const renderImage = (block) => {
@@ -56,7 +89,7 @@ const RichTextArea = ({ module }) => {
 	}
 
 	const renderQuote = (block) => {
-		console.log(block)
+
 		return <figure>
 			<blockquote >
 				<p>{block.data.text}</p>
