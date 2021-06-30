@@ -1,7 +1,7 @@
 import React from "react";
 import { renderHTML } from "@agility/nextjs";
 
-const RichTextArea = ({ module }) => {
+const BlockEditor = ({ module }) => {
 	// get module fields
 	const { fields } = module;
 
@@ -140,4 +140,4 @@ const RichTextArea = ({ module }) => {
 	);
 };
 
-export default RichTextArea;
+export default BlockEditor;
